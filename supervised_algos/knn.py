@@ -2,6 +2,7 @@ import numpy as np
 from collections import Counter
 
 def euclidean_distance(x1, x2):
+    """finds the dist between the test sample data point and the training sample data point"""
     return np.sqrt(np.sum(x1-x2)**2)
 
 class KNN:
@@ -13,7 +14,7 @@ class KNN:
         self.y_train = y
 
     def predict(self, X): # X = X_test
-        predicted_labels = [self._predict(x) for x in X]
+        predicted_labels = [self._predict(x) for x in X] 
         return np.array(predicted_labels)
 
     def _predict(self, x):
@@ -23,6 +24,6 @@ class KNN:
         k_indices = np.argsort(distances)[:self.k]
         k_nearest_labels = [self.y_train[i] for i in k_indices]
         # get majority vote, most common class label
-        most_common = Counter(k_nearest_labels).most_common(1)
-        return most_common[0][0]
+        most_common = Counter(k_nearest_labels).most_common(1)[0][0]
+        return most_common
 

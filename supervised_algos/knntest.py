@@ -15,16 +15,22 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 clf = KNN(k=4)
 clf.fit(X_train, y_train)
 predictions = clf.predict(X_test)
+print(predictions)
+print(y_test)
 
 acc = np.sum(predictions == y_test) / len(y_test)
 print(acc)
 
 
 # print(X_train.shape)
-# print(X_train[0])
+# print(X_train[:5])
+# print(X_test[:5])
+
+# print([x for x in X_test])
+# print([x for x in X_train])
 
 # print(y_train.shape)
-# print(y_train[0])
+# print(y_train[:5])
 
 # plt.figure()
 # plt.scatter(X[:, 0], X[:, 1], cmap=cmap, edgecolors='k', s=20)
